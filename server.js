@@ -11,19 +11,19 @@ const cors = require("cors");
 
 app.use(cors());
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
-mongoose.connect(
-  "mongodb://localhost:27017",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) throw err;
-    console.log("Connected to MongoDB!!!");
-  }
-);
+// mongoose.connect(
+//   "mongodb://localhost:27017",
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   },
+//   (err) => {
+//     if (err) throw err;
+//     console.log("Connected to MongoDB!!!");
+//   }
+// );
 
 const storage = multer.diskStorage({
   destination: 'uploads/',
