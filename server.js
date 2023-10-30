@@ -56,11 +56,10 @@ app.use("/api/cars/", require("./routes/carsRoute"));
 app.use("/api/users/", require("./routes/usersRoute"));
 app.use("/api/bookings/", require("./routes/bookingsRoute"));
 
-app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 
-
-app.get("*", (req, res) => {
+app.use("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
