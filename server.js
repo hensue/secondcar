@@ -11,6 +11,13 @@ const cors = require("cors");
 
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+
+app.use("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
 // mongoose.Promise = global.Promise;
 
 // mongoose.connect(
@@ -56,12 +63,7 @@ app.use("/api/cars/", require("./routes/carsRoute"));
 app.use("/api/users/", require("./routes/usersRoute"));
 app.use("/api/bookings/", require("./routes/bookingsRoute"));
 
-app.use(express.static(path.join(__dirname, "client", "build")));
 
-
-app.use("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
 
 
 
